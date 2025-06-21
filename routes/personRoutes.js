@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
   //ye call tab hota hai jab client post request bhejta hai /person route pr, async function ka use kiya hai kyuki hume database se data fetch karna hai jo ki asynchronous hota hai
   try {
     const data = req.body; // Assuming the request body contains the person data, person ka data mil gya aur wo req.body me store ho gya h jo data cilent bhej rha h usko pehle body-parser ne parse kiya hoga
+    console.log("data received:", data); // ye console me data received ka message print karta hai aur data ko bhi print karta hai
 
     //create a new person instance using the Person model
     const newperson = new Person(data); // ye person model ka instance banata hai jo ki personSchema ka use karta hai aur data ko pass karta hai
