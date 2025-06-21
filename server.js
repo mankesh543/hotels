@@ -9,7 +9,7 @@ require('dotenv').config(); // ye dotenv ko import karta hai jo ki environment v
 
 const bodyParser = require("body-parser"); // ye body-parser ko import karta hai jo ki request body ko parse karta hai
 app.use(bodyParser.json()); //  (req.body) me data save kar lega  ye body-parser ko use karta hai jo ki request body ko json format me parse karta hai
-const PORT = process.env.PORT || 3000; // ye port ko environment variable se set karta hai agar nahi hai to 3000 port use karega
+const PORT = process.env.PORT ; // ye port ko environment variable se set karta hai agar nahi hai to 3000 port use karega
 
 app.get("/", (req, res) => {
   res.send(
