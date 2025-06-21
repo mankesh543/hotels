@@ -1,9 +1,10 @@
 //Ye file database connection aur query execution ke liye hai
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 // Mongoose ko connect karne ke liye URL
-const mongoURL = 'mongodb://localhost:27017/hotels'; // Apne database ka naam yahan daalain
-
+// const mongoURL = preocess.env.MONGODB_URL_LOCAL; //replace 'mydatabase' with your actual database name
+const mongoURL = process.env.MONGODB_URL;
+//ye online jo hmne cluster bnya h use connect hoga (cloud mongodb)
 // Mongoose ko connect karne ka function
 mongoose.connect(mongoURL)
 //get the default connection

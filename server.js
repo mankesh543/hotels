@@ -5,10 +5,11 @@ const app = express(); // ye app banata hai jo express ka instance hai app k pas
 const db = require("./db"); //ye db.js file ko import karta hai jo ki database connection aur query execution ke liye hai
 const { mongo } = require("mongoose");
 const mongoose = require("mongoose");
+require('dotenv').config(); // ye dotenv ko import karta hai jo ki environment variables ko manage karta hai, isse hum sensitive information jaise database URL ko store kar sakte hain bina code me hardcode kiye
 
 const bodyParser = require("body-parser"); // ye body-parser ko import karta hai jo ki request body ko parse karta hai
 app.use(bodyParser.json()); //  (req.body) me data save kar lega  ye body-parser ko use karta hai jo ki request body ko json format me parse karta hai
-
+const PORT = process.env.PORT || 3000; // ye port ko environment variable se set karta hai agar nahi hai to 3000 port use karega
 
 app.get("/", (req, res) => {
   res.send(
@@ -30,8 +31,9 @@ const menuItemRoutes = require('./routes/menuItemRoutes'); // ye menuItemRoutes.
 app.use('/person', personRoutes); // ye personRoutes.js file ke routes ko use karta hai, ab jab bhi /person route pr request aayegi to personRoutes.js file ke routes handle honge
 app.use('/menu', menuItemRoutes); // ye menuItemRoutes.js file ke routes ko use karta hai, ab jab bhi /menu route pr request aayegi to menuItemRoutes.js file ke routes handle honge
 
+
 //ye server ko 3000 port pr sunta hai
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server is listening in port 3000");
 });
 
